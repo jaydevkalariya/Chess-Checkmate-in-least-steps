@@ -1,243 +1,255 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>css grid</title>
+    <title>Chessboard</title>
     <style>
-       .container{
-           margin:60px 425px;
-       }
-       .box{
-           background-color:grey;
-           border:2px solid black;
-           height:75px;
-           width:75px;
-       }
-      .row div:nth-child(2n+1)
-      {
-          background-color: pink;
-      }
-      .row1 div:nth-child(2n)
-      {
-          background-color:pink;
-      }
-       .row{
-           display:grid;
-           grid-template-columns:repeat(8,75px);
-           
-        
-       }
-       .row1{
-           display:grid;
-           grid-template-columns:repeat(8,75px); 
-       }
-       #first img{
-           /* position:relative; */
-           animation-name: jk;
-           animation-duration:1s;
-           animation-fill-mode: forwards;
-       }
-       #ghost img{
-           animation-name: jk3;
-           animation-duration:3s;
-           animation-fill-mode: forwards;
-       }
-       #second img{
-           animation-name: jk2;
-           animation-duration:1s;
-           animation-fill-mode: forwards;
-           animation-delay: 1s;
-       }
-       #third img{
-           /* position:relative; */
-           animation-name: jk4;
-           animation-duration:1s;
-           animation-fill-mode: forwards;
-           animation-delay: 3s;
-       }
-       #forth img{
-           /* position:relative; */
-           animation-name: jk5;
-           animation-duration:1s;
-           animation-fill-mode: forwards;
-           animation-delay: 4s;
-       }
-       #mate img{
-           /* position:relative; */
-           animation-name: jk6;
-           animation-duration:1s;
-           animation-fill-mode: forwards;
-           animation-delay: 5s;
-       }
-       @keyframes jk6{
-         100%{background-color: red;}
+        .chessboard {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            border: 2px solid black;
+            position: relative;
         }
 
-       @keyframes jk{
-            from{
-               /* transform: translateX(0px) translateY(0px); */
-               transform:translateY(0px);
-              
-            }
-            to{
-                /* transform: translateX(160px) translateY(160px); */
-                transform:translateY(160px);
-              
+        .square {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-            } 
         }
-      
-       @keyframes jk2{
-            from{
-               transform:  translateY(0px);
-              
-            }
-            to{
-                transform: translateY(-165px);
-              
 
-            } 
+        .white {
+            background-color: #f0d9b5;
         }
-       @keyframes jk3{
-            from{
-                transform:perspective(0px)  translateZ(0px);
-              
-            }
-            to{
-                transform:perspective(500px)  translateZ(500px);
-              
 
-            } }
-       @keyframes jk4{
-            from{
-                transform:  translateY(0px);
-              
-            }
-            to{
-                transform:  translateY(160px);
-              
+        .black {
+            background-color: #b58863;
+        }
 
-            } }
-       @keyframes jk5{
-            from{
+        .piece {
+            font-size: 30px;
+            color: #000;
+        }
+
+        @media screen and (max-width: 400px) {
+            .chessboard {
+                max-width: 300px;
+            }
+
+            .square {
+                width: 16.66%;
+                padding-bottom: 16.66%;
+            }
+
+            .piece {
+                font-size: 20px;
+            }
+        }
+
+
+
+        #first img {
+            animation-name: jk;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+
+        #second img {
+            animation-name: jk2;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            animation-delay: 1s;
+        }
+
+        #third img {
+
+            animation-name: jk4;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            animation-delay: 3s;
+        }
+
+        #forth img {
+
+            animation-name: jk5;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            animation-delay: 4s;
+        }
+
+        #mate img {
+
+            animation-name: jk6;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            animation-delay: 5s;
+        }
+
+        h2 {
+            color: white;
+            text-align: center;
+            animation-name: head;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+            animation-delay: 6s;
+        }
+
+        @keyframes head {
+            100% {
+                color: black;
+
+            }
+
+        }
+
+        @keyframes jk {
+            from {
+
+                transform: translateY(0px);
+            }
+
+            to {
+
+                transform: translateY(120px);
+            }
+        }
+
+        @keyframes jk2 {
+            from {
+                transform: translateY(0px);
+
+            }
+
+            to {
+                transform: translateY(-120px);
+
+
+            }
+        }
+
+        @keyframes jk4 {
+            from {
+                transform: translateY(0px);
+
+            }
+
+            to {
+                transform: translateY(120px);
+
+
+            }
+        }
+
+        @keyframes jk5 {
+            from {
                 transform: translateX(0px) translateY(0px);
-              
+
             }
-            to{
-                transform:  translateX(-306px) translateY(-325px);
-              
 
-            } 
-         
-       }
+            to {
+                transform: translateX(-240px) translateY(-240px);
 
-       h1{
-           color: white;
-           text-align: center;
-           animation-name:head;
-           animation-duration:2s;
-           animation-fill-mode: forwards;
-           animation-delay: 7s;
-       }
-       @keyframes head{
-           100%{
-               color:black;
-               text-shadow:5px 5px 5px red;
-               font-size:40px;
-           }
-         
-       }
-      
+
+            }
+        }
+
+        @keyframes jk6 {
+            100% {
+                background-color: red;
+            }
+        }
+
+        @keyframes jk7 {
+            100% {
+                display: block;
+            }
+        }
     </style>
 </head>
-<body>
-    <header class="container">
-        <content class="row">
-        <div class="box"> <img src="hathi.png"  width="100%" height="100%"></img> </div>
-        <div class="box"><img src="ghoda2.png"  width="100%" height="100%"></img></div>
-        <div class="box"> <img src="aunt2.png"  width="100%" height="100%"></img></div>
-        <div class="box" id="mate"> <img src="raja2.png"  width="100%" height="100%"></img></div>
-        <div class="box"> <img src="vajir2.png"  width="100%" height="100%"></img></div>
-        <div class="box"><img src="aunt2.png"  width="100%" height="100%"></img></div>
-        <div class="box"><img src="ghoda2.png"  width="100%" height="100%"></img></div>
-        <div class="box"> <img src="hathi.png"  width="100%" height="100%"></img>
-        </div>
-    </content>
-    
-    <content class="row1">
-        <div class="box"><img  src="sainikk.png" alt="" width="100%" height="100%"></a></div>  
-        <div class="box" id="first"><img src="sainikk.png" alt="" width="100%" height="100%"></a> </div>
-        <div class="box" id="third"><img src="sainikk.png" alt="" width="100%" height="100%"></a> </div>
-        <div class="box"><img src="sainikk.png" alt="" width="100%" height="100%"></a> </div>
-        <div class="box"><img src="sainikk.png" alt="" width="100%" height="100%"></a> </div>
-        <div class="box"><img src="sainikk.png" alt="" width="100%" height="100%"></a></div>
-        <div class="box"><img src="sainikk.png" alt="" width="100%" height="100%"></a> </div>
-        <div class="box"><img src="sainikk.png" alt="" width="100%" height="100%"></a> </div>
-        </content>
-        <content class="row">
-        <div class="box"> </div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-    </content>
-        <content class="row1">
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-    </content>
-        <content class="row">
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box" id="ghost"> <img src="./ghost.jpg" alt="" height="2px" width="2px"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-    </content>
-        <content class="row1">
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-    </content>
-        <content class="row">
-            <div class="box"><img src="sainikk2.png" alt="" width="100%" height="100%"></a></div>  
-            <div class="box"><img src="sainikk2.png" alt="" width="100%" height="100%"></a> </div>
-            <div class="box"><img src="sainikk2.png" alt="" width="100%" height="100%"></a> </div>
-            <div class="box" id="second"><img src="sainikk2.png" alt="" width="100%" height="100%"></a> </div>
-            <div class="box"><img src="sainikk2.png" alt="" width="100%" height="100%"></a> </div>
-            <div class="box"><img src="sainikk2.png" alt="" width="100%" height="100%"></a></div>
-            <div class="box"><img src="sainikk2.png" alt="" width="100%" height="100%"></a> </div>
-            <div class="box"><img src="sainikk2.png" alt="" width="100%" height="100%"></a> </div>
-    </content>
-        <content class="row1">
-        <div class="box"> <img src="hathi2.png"  width="100%" height="100%"></img></div>
-        <div class="box"> <img src="ghoda.png"  width="100%" height="100%"></img></div>
-        <div class="box"> <img src="aunt.png"  width="100%" height="100%"></img></div>
-        <div class="box"> <img src="raja.png"  width="100%" height="100%"></img></div>
-        <div class="box" id="forth"> <img src="vajir.png"  width="100%" height="100%"></img></div>
-        <div class="box"> <img src="aunt.png"  width="100%" height="100%"></img></div>
-        <div class="box"> <img src="ghoda.png"  width="100%" height="100%"></img></div>
-        <div class="box"> <img src="hathi2.png"  width="100%" height="100%"></img></div>
-    </content>
-        <h1> Black wins</h1>
 
-    </header>
+<body>
+    <div class="chessboard">
+
+
+
+        <div class="square black"> <img src="hathi.png"></img> </div>
+        <div class="square"><img src="ghoda2.png"></img></div>
+        <div class="square black"> <img src="aunt2.png"></img></div>
+        <div class="square" id="mate"> <img src="raja2.png" width="100%" height="100%"></img></div>
+        <div class="square black"> <img src="vajir2.png" width="100%" height="100%"></img></div>
+        <div class="square"><img src="aunt2.png" width="100%" height="100%"></img></div>
+        <div class="square black"><img src="ghoda2.png" width="100%" height="100%"></img></div>
+        <div class="square"> <img src="hathi.png" width="100%" height="100%"></img></div>
+
+        <div class="square"><img src="sainikk.png" alt="" width="100%" height="100%" /></div>
+        <div class="square black" id="first"><img src="sainikk.png" alt="" /></div>
+        <div class="square" id="third"><img src="sainikk.png" alt="" width="100%" height="100%" /> </div>
+        <div class="square black"><img src="sainikk.png" alt="" width="100%" height="100%" /> </div>
+        <div class="square"><img src="sainikk.png" alt="" width="100%" height="100%" /> </div>
+        <div class="square black"><img src="sainikk.png" alt="" width="100%" height="100%" /></div>
+        <div class="square"><img src="sainikk.png" alt="" width="100%" height="100%" /> </div>
+        <div class="square black"><img src="sainikk.png" alt="" width="100%" height="100%" /> </div>
+
+        <div class="square black"> </div>
+        <div class="square"></div>
+        <div class="square black"></div>
+        <div class="square"></div>
+        <div class="square black"></div>
+        <div class="square"></div>
+        <div class="square black"></div>
+        <div class="square"></div>
+
+        <div class="square"></div>
+        <div class="square black"></div>
+        <div class="square"></div>
+        <div class="square black"></div>
+        <div class="square"></div>
+        <div class="square black"></div>
+        <div class="square"></div>
+        <div class="square black"></div>
+
+        <div class="square black"></div>
+        <div class="square"></div>
+        <div class="square black"></div>
+        <div class="square"></div>
+        <div class="square black"></div>
+        <div class="square"></div>
+        <div class="square black"></div>
+        <div class="square"></div>
+
+        <div class="square"></div>
+        <div class="square black"></div>
+        <div class="square"></div>
+        <div class="square black"></div>
+        <div class="square"></div>
+        <div class="square black"></div>
+        <div class="square"></div>
+        <div class="square black"></div>
+
+        <div class="square black"><img src="sainikk2.png" alt="" width="100%" height="100%"></div>
+        <div class="square"><img src="sainikk2.png" alt="" width="100%" height="100%" /> </div>
+        <div class="square black"><img src="sainikk2.png" alt="" width="100%" height="100%" /> </div>
+        <div class="square" id="second"><img src="sainikk2.png" alt="" width="100%" height="100%" /> </div>
+        <div class="square black"><img src="sainikk2.png" alt="" width="100%" height="100%" /> </div>
+        <div class="square"><img src="sainikk2.png" alt="" width="100%" height="100%" /></div>
+        <div class="square black"><img src="sainikk2.png" alt="" width="100%" height="100%" /> </div>
+        <div class="square"><img src="sainikk2.png" alt="" width="100%" height="100%" /> </div>
+
+        <div class="square"> <img src="hathi2.png" width="100%" height="100%"></img></div>
+        <div class="square black"> <img src="ghoda.png" width="100%" height="100%"></img></div>
+        <div class="square"> <img src="aunt.png" width="100%" height="100%"></img></div>
+        <div class="square black"> <img src="raja.png" width="100%" height="100%"></img></div>
+        <div class="square" id="forth"> <img src="vajir.png" width="100%" height="100%"></img></div>
+        <div class="square black"> <img src="aunt.png" width="100%" height="100%"></img></div>
+        <div class="square"> <img src="ghoda.png" width="100%" height="100%"></img></div>
+        <div class="square black"> <img src="hathi2.png" width="100%" height="100%"></img></div>
+    </div>
+    <h2>Checkmate! Black Wins</h2>
 </body>
+
 </html>
